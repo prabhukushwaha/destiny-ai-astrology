@@ -9,6 +9,7 @@
   },
   "homepage": "https://destinyaiastrology.com",
   "privacyPolicyUrl": "https://www.destinyaiastrology.com/privacy-policy/",
+  "supportUrl": "https://www.destinyaiastrology.com/#contact",
   "repository": "https://github.com/prabhukushwaha/destiny-ai-astrology",
   "license": "LicenseRef-Proprietary",
   "icon": "./.claude-plugin/icon.png",
