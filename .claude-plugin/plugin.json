@@ -10,6 +10,7 @@
   "homepage": "https://destinyaiastrology.com",
   "repository": "https://github.com/prabhukushwaha/destiny-ai-astrology",
   "license": "LicenseRef-Proprietary",
+  "icon": "./.claude-plugin/icon.png",
   "keywords": [
     "astrology",
     "vedic",
