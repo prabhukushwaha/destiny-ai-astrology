@@ -1,0 +1,17 @@
+{
+  "name": "destiny-ai",
+  "description": "Destiny AI Astrology plugins.",
+  "owner": {
+    "name": "Destiny AI Astrology",
+    "url": "https://destinyaiastrology.com"
+  },
+  "plugins": [
+    {
+      "name": "destiny-ai-astrology",
+      "source": "./",
+      "description": "Vedic astrology readings via the Destiny AI remote MCP server plus a gateway skill.",
+      "category": "productivity",
+      "tags": ["astrology", "vedic", "mcp"]
+    }
+  ]
+}

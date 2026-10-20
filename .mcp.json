@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "astro-vedic": {
+      "type": "http",
+      "url": "https://astroapi-prod-dsqvza5jza-ul.a.run.app/mcp/jsonrpc",
+      "headers": {
+        "Authorization": "Bearer ${user_config.api_key}"
+      }
+    }
+  }
+}

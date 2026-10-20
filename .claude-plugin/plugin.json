@@ -1,0 +1,33 @@
+{
+  "name": "destiny-ai-astrology",
+  "displayName": "Destiny AI Astrology",
+  "version": "2.0.0",
+  "description": "Vedic astrology, birth-chart, compatibility, dasha and transit readings via the Destiny AI remote MCP server, with a gateway skill that enforces the get_reading loop and the required birth fields.",
+  "author": {
+    "name": "Destiny AI Astrology",
+    "url": "https://destinyaiastrology.com"
+  },
+  "homepage": "https://destinyaiastrology.com",
+  "repository": "https://github.com/prabhukushwaha/destiny-ai-astrology",
+  "license": "LicenseRef-Proprietary",
+  "keywords": [
+    "astrology",
+    "vedic",
+    "horoscope",
+    "birth-chart",
+    "compatibility",
+    "dasha",
+    "transit",
+    "mcp"
+  ],
+  "mcpServers": "./.mcp.json",
+  "userConfig": {
+    "api_key": {
+      "type": "string",
+      "title": "Destiny AI API key",
+      "description": "Optional. Your personal Destiny AI API key. Not needed on claude.ai (requests are authorized by Anthropic's network); provide it to authenticate from other clients and for per-user limits. Request one at https://destinyaiastrology.com.",
+      "required": false,
+      "sensitive": true
+    }
+  }
+}
