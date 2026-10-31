@@ -1,7 +1,7 @@
 {
   "name": "destiny-ai-astrology",
   "displayName": "Destiny AI Astrology",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Vedic astrology, birth-chart, compatibility, dasha and transit readings via the Destiny AI remote MCP server, with a gateway skill that enforces the get_reading loop and the required birth fields.",
   "author": {
     "name": "Destiny AI Astrology",

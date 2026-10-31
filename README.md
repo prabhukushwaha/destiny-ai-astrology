@@ -21,9 +21,11 @@ on a real computed chart.
 
 ## Required birth details
 
-Before a reading, Claude needs your **name**, **date of birth**, **time of birth**, and
-**city of birth**. For questions about current timing or transits, it also uses your
-**current city**. You never need to provide coordinates — Claude geocodes cities for you.
+Before a reading, Claude needs your **date of birth**, **time of birth**, and **city of
+birth**. It never asks for your name or e-mail. For questions about current timing or
+transits, it may also ask for your **current city**. You never need to provide
+coordinates — Claude geocodes cities for you. If you don't know your birth time, give your
+best estimate; the reading is then approximate.
 
 ## Setup
 
@@ -35,8 +37,8 @@ token. Request a key at [destinyaiastrology.com](https://destinyaiastrology.com)
 
 ## Data
 
-To generate a reading, Claude sends the birth details you provide (name, date, time,
-and city of birth, plus your current city for transit questions) and your astrology
+To generate a reading, Claude sends the birth details you provide (date, time and city
+of birth, plus your current city for transit questions) and your astrology
 question over HTTPS to the Destiny AI MCP server at
 `astroapi-prod-dsqvza5jza-ul.a.run.app`, authenticated with your API key. That server is
 the only destination; the plugin sends no data anywhere else and runs no other code on your
