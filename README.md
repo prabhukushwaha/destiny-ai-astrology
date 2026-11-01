@@ -21,24 +21,31 @@ on a real computed chart.
 
 ## Required birth details
 
-Before a reading, Claude needs your **name**, **date of birth**, **time of birth**, and
-**city of birth**. For questions about current timing or transits, it also uses your
-**current city**. You never need to provide coordinates — Claude geocodes cities for you.
+Before a reading, Claude needs your **date of birth**, **time of birth**, and **city of
+birth**. For questions about current timing or transits, it also uses your **current city**.
+You never need to provide coordinates — Claude geocodes cities for you, and Claude never asks
+for your name or email.
 
 ## Setup
 
-On **claude.ai** no setup is required — connect the server from the **Connectors** tab and
-start asking. Requests from claude.ai are authorized at the network level, so an API key is
-optional there. If you run the plugin from another client, or want per-user rate limits,
-enter your **Destiny AI API key** when prompted; it is stored securely and sent as a bearer
-token. Request a key at [destinyaiastrology.com](https://destinyaiastrology.com).
+The first time Claude uses a Destiny tool, it asks you to **sign in with your Destiny
+account** (Sign in with Apple, Google, or email). Use the same account as in the Destiny
+app; there is nothing else to configure. Each account has a daily allowance for readings,
+chart tools and compatibility that follows its Destiny plan; the allowance resets at
+00:00 UTC.
+
+In Claude Code, add the server and sign in from `/mcp`:
+
+```
+claude mcp add --transport http destiny https://mcp.destinyaiastrology.com/mcp/jsonrpc
+```
 
 ## Data
 
-To generate a reading, Claude sends the birth details you provide (name, date, time,
-and city of birth, plus your current city for transit questions) and your astrology
-question over HTTPS to the Destiny AI MCP server at
-`astroapi-prod-dsqvza5jza-ul.a.run.app`, authenticated with your API key. That server is
+To generate a reading, Claude sends the birth details you provide (date, time and city
+of birth, plus your current city for transit questions) and your astrology question over
+HTTPS to the Destiny AI MCP server at `mcp.destinyaiastrology.com`, authenticated with the
+access token from your Destiny sign-in (the token carries no email or birth data). That server is
 the only destination; the plugin sends no data anywhere else and runs no other code on your
 machine. Handling of data received by the server is governed by the Destiny AI
 [Privacy Policy](https://destinyaiastrology.com).

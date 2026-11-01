@@ -1,7 +1,7 @@
 ---
 name: destiny-ai-astrology
 description: Use for ANY astrology / birth-chart / compatibility / horoscope / dasha / transit question when the Destiny MCP plugin is connected. Enforces the get_reading gateway loop and the required birth fields.
-version: "2.0.0"
+version: "3.0.0"
 ---
 
 # Destiny AI Astrology — Gateway Skill
@@ -23,11 +23,13 @@ Act on the `state` field returned by every `get_reading` call:
 |---|---|
 | `WELCOME` | New conversation. Greet the user and ask for their birth details. |
 | `NEED_FIELDS` | Ask the user only for the `missing_fields` named, then call `get_reading` again. |
-| `READY` | Call `get_reading` again. |
 | `READING_DONE` | Synthesize a clear reading from the returned `data`. |
 | `ERROR` | Tell the user it couldn't be completed. Never fabricate a reading. |
 
 For each new astrology question, call `get_reading` again with the user's question.
+
+Pass `system` (`western` or `jaimini`) only when the user explicitly asks for that tradition;
+otherwise omit it (it defaults to vedic).
 
 ## Conversation id
 
@@ -39,13 +41,23 @@ derive it from the user's name, email, or any personal detail.
 
 ## Required details
 
-Before a reading you need: `name`, `date of birth`, `time of birth`, and `city of birth`.
+Before a reading you need: `date of birth`, `time of birth`, and `city of birth`.
 
+- Do **not** ask for the user's name or email: a reading never requires them. Use a name only
+  if the user volunteers it, purely to personalize the reply.
 - Geocode the city of birth to latitude/longitude yourself. Never ask the user for coordinates.
-- If the question is about current timing or transits, also geocode the user's **current city**
-  to `current_latitude` / `current_longitude`. Current city is only needed for transit questions.
-- `email` is optional. It is used only to associate the reading with the user's existing
-  account where applicable; never require it to answer a question.
+- Only for current-timing or transit questions may you ask for the user's **current city**;
+  geocode it to `current_latitude` / `current_longitude`. Never ask for it otherwise.
+- Time of birth is required: the ascendant and houses depend on it. If the user doesn't know
+  it, ask for their best estimate and say the reading is approximate.
+
+## Sign-in and plan limits
+
+The Destiny connector asks the user to sign in with their Destiny account (Apple, Google or
+email) the first time a tool runs; Claude shows the Connect button. Each account has a daily
+allowance per kind of tool that follows its Destiny plan. If a tool returns status
+`plan_required`, `quota_exhausted` or `account_required`, repeat its message to the user
+exactly and do not suggest purchase steps.
 
 ## Granular tools
 
